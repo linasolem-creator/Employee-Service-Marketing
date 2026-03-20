@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relate '26 Demand Gen Command Center</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'zendesk-green': '#03363D',
+                        'zendesk-mint': '#30AABC',
+                        'zendesk-teal': '#028079',
+                        'zendesk-kale': '#0B3B29',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // REAL DATA - Updated with actual registration numbers
+        const registrationData = {
+            inPerson: [
+                { metric: "IT Registrations", target: 1900, actual: 170, category: "IT" },
+                { metric: "HR Registrations", target: 1900, actual: 8, category: "HR" },
+                { metric: "TOTAL In-Person", target: 1900, actual: 178, category: "Total", isTotal: true }
+            ],
+            digital: [
+                { metric: "IT Registrations", target: 5600, actual: 218, category: "IT" },
+                { metric: "HR Registrations", target: 5600, actual: 16, category: "HR" },
+                { metric: "TOTAL Digital", target: 5600, actual: 234, category: "Total", isTotal: true }
+            ]
+        };
+
+        const workstreams = [
+            {
+                id: 1,
+                name: "Website & Landing Pages",
+                status: "In Progress",
+                owners: { it: "Jane Smith", primary: "John Doe" },
+                nextSteps: [
+                    { task: "Finalize hero section copy", done: true },
+                    { task: "Action: Review SEO metadata", done: false, isAction: true },
+                    { task: "Launch staging environment", done: false }
+                ]
+            },
+            {
+                id: 2,
+                name: "Email Campaign Sequences",
+                status: "In Progress",
+                owners: { it: "Mike Johnson", primary: "Sarah Lee" },
+                nextSteps: [
+                    { task: "Complete Em 11 copywriting", done: true },
+                    { task: "Action: Approve Em 12 design", done: false, isAction: true },
+                    { task: "Schedule Em 13 send", done: false }
+                ]
+            },
+            {
+                id: 3,
+                name: "Event Logistics",
+                status: "Vetting",
+                owners: { it: "Tom Brown", primary: "Lisa Chen" },
+                nextSteps: [
+                    { task: "Confirm venue capacity", done: false },
+                    { task: "Action: Finalize catering menu", done: false, isAction: true },
+                    { task: "Send vendor contracts", done: false }
+                ]
+            },
+            {
+                id: 4,
+                name: "Partner Integration",
+                status: "Not Started",
+                owners: { it: "Alex Park", primary: "Emma Wilson" },
+                nextSteps: [
+                    { task: "Identify partner contacts", done: false },
+                    { task: "Draft partnership deck", done: false },
+                    { task: "Action: Schedule kickoff meeting", done: false, isAction: true }
+                ]
+            },
+            {
+                id: 5,
+                name: "Social Media Activation",
+                status: "In Progress",
+                owners: { it: "Chris Davis", primary: "Maya Patel" },
+                nextSteps: [
+                    { task: "Create LinkedIn content calendar", done: true },
+                    { task: "Design social graphics", done: false },
+                    { task: "Action: Schedule influencer posts", done: false, isAction: true }
+                ]
+            }
+        ];
+
+        const execParticipation = {
+            itHappyHour: ["Adrian McDermott (CTO)", "Cristina Fonseca (CPO)", "Jeff Titterton (CIO)"],
+            foodieTour: ["Adrian McDermott (CTO)", "Cristina Fonseca (CPO)", "Sam Boonin (CMO)", "Jeff Titterton (CIO)"]
+        };
+
+        const deadlines = [
+            { name: "Final Speaker Confirmations", date: "2026-03-27" },
+            { name: "Registration Cutoff (Early Bird)", date: "2026-04-01" },
+            { name: "Event Day - Relate '26", date: "2026-04-20" }
+        ];
+
+        const communications = [
+            { name: "Em 11: Save the Date", date: "2026-03-10", status: "Sent" },
+            { name: "Em 12: Speaker Lineup Reveal", date: "2026-03-24", status: "Scheduled" },
+            { name: "Em 13: Last Chance Registration", date: "2026-04-10", status: "Draft" },
+            { name: "Digital Activation Campaign", date: "2026-03-31", status: "Planned" }
+        ];
+
+        function RegistrationStatus() {
+            const renderTable = (data, title, titleBg) => (
+                <div className="mb-6">
+                    <h3 className={`text-lg font-bold text-white ${titleBg} px-4 py-2 rounded-t-lg`}>{title}</h3>
+                    <div className="border-2 border-gray-200 rounded-b-lg p-4 bg-white">
+                        <div className="space-y-4">
+                            {data.map((item, idx) => {
+                                const percentage = Math.round((item.actual / item.target) * 100);
+                                const isOnTrack = percentage >= 10;
+                                return (
+                                    <div key={idx} className={`pb-4 ${item.isTotal ? 'border-t-2 pt-4 mt-2' : 'border-b'} last:border-b-0`}>
+                                        <div className="flex justify-between mb-2">
+                                            <span className={`${item.isTotal ? 'font-bold text-lg' : 'font-semibold'} text-gray-700`}>{item.metric}</span>
+                                            <span className={`${item.isTotal ? 'font-bold text-lg' : 'text-sm'} text-gray-600`}>
+                                                {item.actual.toLocaleString()} / {item.target.toLocaleString()} ({percentage}%)
+                                            </span>
+                                        </div>
+                                        <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                            <div
+                                                className={`h-3 rounded-full transition-all ${
+                                                    isOnTrack ? 'bg-zendesk-teal' : 'bg-red-500'
+                                                }`}
+                                                style={{ width: `${Math.min(percentage, 100)}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            );
+
+            return (
+                <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 className="text-2xl font-bold text-zendesk-green mb-4 flex items-center">
+                        <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        Live Registration Status
+                    </h2>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                            {renderTable(registrationData.inPerson, 'In-Person Event', 'bg-zendesk-teal')}
+                        </div>
+                        <div>
+                            {renderTable(registrationData.digital, 'Digital Event', 'bg-zendesk-mint')}
+                        </div>
+                    </div>
+
+                    <div className="mt-4 p-3 bg-blue-50 rounded border-l-4 border-zendesk-mint">
+                        <p className="text-sm text-gray-700">
+                            <strong>Last Updated:</strong> {new Date().toLocaleString()} | <strong>Note:</strong> Confidential data - do not share publicly
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
+        function WorkstreamBoard() {
+            const statusGroups = {
+                'In Progress': workstreams.filter(w => w.status === 'In Progress'),
+                'Vetting': workstreams.filter(w => w.status === 'Vetting'),
+                'Not Started': workstreams.filter(w => w.status === 'Not Started')
+            };
+
+            const statusColors = {
+                'In Progress': 'bg-yellow-100 border-yellow-400 text-yellow-800',
+                'Vetting': 'bg-blue-100 border-blue-400 text-blue-800',
+                'Not Started': 'bg-gray-100 border-gray-400 text-gray-800'
+            };
+
+            const statusIcons = {
+                'In Progress': '🔄',
+                'Vetting': '🔍',
+                'Not Started': '⏸️'
+            };
+
+            return (
+                <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 className="text-2xl font-bold text-zendesk-green mb-4 flex items-center">
+                        <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        Workstream Board
+                    </h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                        {Object.entries(statusGroups).map(([status, items]) => (
+                            <div key={status} className="space-y-3">
+                                <div className={`px-3 py-2 rounded-t-lg border-2 ${statusColors[status]} font-semibold flex items-center justify-between`}>
+                                    <span>{statusIcons[status]} {status}</span>
+                                    <span className="text-sm">({items.length})</span>
+                                </div>
+                                <div className="space-y-3">
+                                    {items.map(item => (
+                                        <div key={item.id} className="border-2 border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
+                                            <h3 className="font-bold text-gray-800 mb-2">{item.name}</h3>
+                                            <div className="text-sm text-gray-600 mb-3">
+                                                <div className="flex items-center mb-1">
+                                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                    </svg>
+                                                    <strong>IT:</strong> {item.owners.it}
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    <strong>Primary:</strong> {item.owners.primary}
+                                                </div>
+                                            </div>
+                                            <div className="border-t pt-2">
+                                                <p className="text-xs font-semibold text-gray-500 mb-2">NEXT STEPS:</p>
+                                                <ul className="space-y-1">
+                                                    {item.nextSteps.map((step, idx) => (
+                                                        <li key={idx} className="flex items-start text-sm">
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={step.done}
+                                                                readOnly
+                                                                className="mt-1 mr-2"
+                                                            />
+                                                            <span className={`${step.done ? 'line-through text-gray-400' : ''} ${step.isAction ? 'font-bold text-red-600' : ''}`}>
+                                                                {step.task}
+                                                            </span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        function ExecutiveTracker() {
+            return (
+                <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 className="text-2xl font-bold text-zendesk-green mb-4 flex items-center">
+                        <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Executive Participation
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="border-2 border-zendesk-mint rounded-lg p-4 bg-teal-50">
+                            <h3 className="font-bold text-lg mb-2 text-zendesk-teal">IT Happy Hour</h3>
+                            <ul className="space-y-1">
+                                {execParticipation.itHappyHour.map((exec, idx) => (
+                                    <li key={idx} className="flex items-center text-gray-700">
+                                        <svg className="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                        </svg>
+                                        {exec}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="border-2 border-zendesk-mint rounded-lg p-4 bg-teal-50">
+                            <h3 className="font-bold text-lg mb-2 text-zendesk-teal">Foodie Tour</h3>
+                            <ul className="space-y-1">
+                                {execParticipation.foodieTour.map((exec, idx) => (
+                                    <li key={idx} className="flex items-center text-gray-700">
+                                        <svg className="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                        </svg>
+                                        {exec}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function DeadlineTracker() {
+            const calculateDaysRemaining = (dateStr) => {
+                const today = new Date();
+                const deadline = new Date(dateStr);
+                const diffTime = deadline - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                return diffDays;
+            };
+
+            return (
+                <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 className="text-2xl font-bold text-zendesk-green mb-4 flex items-center">
+                        <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Key Deadlines
+                    </h2>
+                    <div className="space-y-3">
+                        {deadlines.map((deadline, idx) => {
+                            const daysRemaining = calculateDaysRemaining(deadline.date);
+                            const isUrgent = daysRemaining <= 7;
+                            return (
+                                <div key={idx} className={`border-l-4 p-4 rounded ${isUrgent ? 'border-red-500 bg-red-50' : 'border-zendesk-mint bg-blue-50'}`}>
+                                    <div className="flex justify-between items-center">
+                                        <div>
+                                            <h3 className="font-bold text-gray-800">{deadline.name}</h3>
+                                            <p className="text-sm text-gray-600">{new Date(deadline.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                                        </div>
+                                        <div className={`text-right ${isUrgent ? 'text-red-600' : 'text-zendesk-teal'}`}>
+                                            <span className="text-2xl font-bold">{Math.abs(daysRemaining)}</span>
+                                            <p className="text-xs font-semibold">
+                                                {daysRemaining > 0 ? 'days left' : daysRemaining === 0 ? 'TODAY!' : 'days ago'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            );
+        }
+
+        function CommunicationsTimeline() {
+            const statusColors = {
+                'Sent': 'bg-green-100 text-green-800 border-green-400',
+                'Scheduled': 'bg-blue-100 text-blue-800 border-blue-400',
+                'Draft': 'bg-yellow-100 text-yellow-800 border-yellow-400',
+                'Planned': 'bg-gray-100 text-gray-800 border-gray-400'
+            };
+
+            return (
+                <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 className="text-2xl font-bold text-zendesk-green mb-4 flex items-center">
+                        <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Communications Timeline
+                    </h2>
+                    <div className="space-y-4">
+                        {communications.map((comm, idx) => (
+                            <div key={idx} className="relative pl-8 pb-4 border-l-2 border-gray-300 last:border-l-0">
+                                <div className="absolute -left-2 top-0 w-4 h-4 bg-zendesk-mint rounded-full border-2 border-white"></div>
+                                <div className="flex justify-between items-start">
+                                    <div>
+                                        <h3 className="font-bold text-gray-800">{comm.name}</h3>
+                                        <p className="text-sm text-gray-600">{new Date(comm.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+                                    </div>
+                                    <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${statusColors[comm.status]}`}>
+                                        {comm.status}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        function Dashboard() {
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+                    <header className="bg-zendesk-green text-white shadow-lg">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                            <h1 className="text-3xl font-bold">Relate '26 Demand Gen Command Center</h1>
+                            <p className="text-zendesk-mint mt-1">Live Event Progress Dashboard</p>
+                        </div>
+                    </header>
+
+                    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <div className="lg:col-span-2">
+                                <RegistrationStatus />
+                                <WorkstreamBoard />
+                                <CommunicationsTimeline />
+                            </div>
+                            <div className="lg:col-span-1">
+                                <DeadlineTracker />
+                                <ExecutiveTracker />
+                            </div>
+                        </div>
+                    </main>
+
+                    <footer className="bg-zendesk-green text-white mt-12">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-sm">
+                            <p>Relate '26 Command Center | Last Updated: {new Date().toLocaleString()}</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Dashboard />, document.getElementById('root'));
+    </script>
+</body>
+</html>
