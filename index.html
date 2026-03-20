@@ -3,866 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zendesk Employee Service Battle Cards | Competitive Positioning</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Employee Service Marketing Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'zendesk-green': '#03363D',
+                        'zendesk-mint': '#30AABC',
+                        'zendesk-teal': '#028079',
+                        'zendesk-kale': '#0B3B29',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #03363d;
-            background: #f8f9f9;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #03363d 0%, #0b5940 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .section {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-        }
-
-        h2 {
-            color: #03363d;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #03a84e;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: #0b5940;
-            font-size: 1.3rem;
-            margin: 20px 0 15px 0;
-        }
-
-        .highlight-box {
-            background: #f0f9f4;
-            border-left: 4px solid #03a84e;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .competitor-card {
-            background: #ffffff;
-            border: 2px solid #e8ebed;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .competitor-card h3 {
-            color: #03363d;
-            margin-top: 0;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        .comparison-table th {
-            background: #03363d;
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e8ebed;
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background: #f8f9f9;
-        }
-
-        .zendesk-col {
-            background: #f0f9f4 !important;
-            font-weight: 600;
-        }
-
-        .win {
-            color: #03a84e;
-            font-weight: 600;
-        }
-
-        .lose {
-            color: #cc5537;
-        }
-
-        .neutral {
-            color: #5f6d7a;
-        }
-
-        ul {
-            margin: 15px 0 15px 30px;
-        }
-
-        li {
-            margin: 8px 0;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .pricing-card {
-            border: 2px solid #e8ebed;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .pricing-card.zendesk-card {
-            border-color: #03a84e;
-            background: #f0f9f4;
-        }
-
-        .pricing-card h4 {
-            color: #03363d;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #03a84e;
-            margin: 15px 0;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #03a84e;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 5px;
-        }
-
-        .tag.red {
-            background: #cc5537;
-        }
-
-        .tag.orange {
-            background: #f79a3e;
-        }
-
-        .cta-box {
-            background: linear-gradient(135deg, #03a84e 0%, #0b5940 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .cta-box h3 {
-            color: white;
-            margin: 0 0 15px 0;
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-            .section {
-                box-shadow: none;
-                page-break-inside: avoid;
-            }
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body>
-    <div class="header">
-        <h1>🎯 Zendesk Employee Service Battle Cards</h1>
-        <p>Competitive Positioning for ITSM Solutions | 50-1,500 Employee Market</p>
-    </div>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="min-h-screen flex flex-col">
+        <header class="bg-zendesk-green text-white shadow-lg">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <h1 class="text-4xl font-bold">Employee Service Marketing</h1>
+                <p class="text-zendesk-mint mt-2 text-lg">Tools & Resources Hub</p>
+            </div>
+        </header>
 
-    <div class="container">
+        <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <!-- EXECUTIVE SUMMARY -->
-        <div class="section">
-            <h2>Executive Summary: Zendesk for Employee Service</h2>
-            <div class="highlight-box">
-                <p><strong>Zendesk transforms employee service with AI-powered support that's simple to deploy, intuitive to use, and scales effortlessly.</strong> While traditional ITSM platforms like ServiceNow require months of implementation and expensive consultants, Zendesk delivers enterprise-grade employee service in weeks—at a fraction of the cost.</p>
+                <a href="Employee-Service-Battle-Cards.html" class="block group">
+                    <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full border-t-4 border-zendesk-teal">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-12 h-12 text-zendesk-teal mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <h2 class="text-2xl font-bold text-zendesk-green">Employee Service Battle Cards</h2>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Quick-reference sales enablement cards for Employee Service solutions. Access key talking points, value propositions, and competitive differentiation.
+                        </p>
+                        <div class="flex items-center text-zendesk-teal font-semibold group-hover:text-zendesk-green transition-colors">
+                            <span>View Battle Cards</span>
+                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="relate-demand-gen-dashboard.html" class="block group">
+                    <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full border-t-4 border-zendesk-mint">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-12 h-12 text-zendesk-mint mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                            <h2 class="text-2xl font-bold text-zendesk-green">Relate '26 Command Center</h2>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Live dashboard tracking Relate '26 event registration progress, workstream status, executive participation, and key deadlines.
+                        </p>
+                        <div class="flex items-center text-zendesk-mint font-semibold group-hover:text-zendesk-green transition-colors">
+                            <span>Open Dashboard</span>
+                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                                </svg>
+                                Last updated: March 2026
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
             </div>
 
-            <h3>Why Zendesk Wins for Mid-Market (50-1,500 Employees)</h3>
-            <ul>
-                <li><strong>Right-Sized Solution:</strong> Enterprise features without enterprise complexity or cost</li>
-                <li><strong>Rapid Time-to-Value:</strong> Deploy in weeks, not months or years</li>
-                <li><strong>AI-Powered from Day One:</strong> Autonomous AI agents solve 80% of issues automatically</li>
-                <li><strong>Transparent Pricing:</strong> Clear costs with no hidden fees or consultant dependency</li>
-                <li><strong>Dual-Purpose Platform:</strong> One platform for both customer AND employee service</li>
-                <li><strong>165,000+ Customers:</strong> Proven at scale across industries</li>
-            </ul>
-        </div>
-
-        <!-- KEY MESSAGING & HOOKS -->
-        <div class="section">
-            <h2>Key Messaging & Sales Hooks</h2>
-
-            <h3>Core Positioning Statement</h3>
-            <p><strong>"Zendesk delivers enterprise-grade employee service management with consumer-grade simplicity—giving IT teams powerful ITSM capabilities without the complexity, cost, or lengthy implementations of traditional platforms."</strong></p>
-
-            <h3>Winning Hooks by Competitor</h3>
-
-            <div class="competitor-card">
-                <h3>vs. ServiceNow</h3>
-                <span class="tag">TOO COMPLEX</span>
-                <span class="tag red">TOO EXPENSIVE</span>
-                <span class="tag orange">TOO SLOW</span>
-                <ul>
-                    <li><strong>"Save 70-80% on licensing costs"</strong> - ServiceNow is enterprise-priced for mid-market budgets</li>
-                    <li><strong>"Deploy in weeks, not years"</strong> - No consultants required for basic implementation</li>
-                    <li><strong>"Your IT team can manage it"</strong> - No need for dedicated ServiceNow developers</li>
-                    <li><strong>"Get the ITSM you need, not the complexity you don't"</strong> - Right-sized for growing companies</li>
-                </ul>
-            </div>
-
-            <div class="competitor-card">
-                <h3>vs. JIRA Service Management</h3>
-                <span class="tag">BETTER AI</span>
-                <span class="tag">SIMPLER SETUP</span>
-                <ul>
-                    <li><strong>"Built for service, not software development"</strong> - Native ITSM vs. adapted project management tool</li>
-                    <li><strong>"AI included, not add-on consumption charges"</strong> - Zendesk AI built-in vs. JIRA's pay-per-use model</li>
-                    <li><strong>"Omnichannel by design"</strong> - Superior multi-channel support (chat, phone, social, email)</li>
-                    <li><strong>"Escape Atlassian ecosystem lock-in"</strong> - Freedom from requiring multiple Atlassian products</li>
-                </ul>
-            </div>
-
-            <div class="competitor-card">
-                <h3>vs. Freshservice</h3>
-                <span class="tag">MORE MATURE</span>
-                <span class="tag">BETTER SCALE</span>
-                <ul>
-                    <li><strong>"165,000+ customers vs. 20,000"</strong> - 8x more proven deployments</li>
-                    <li><strong>"Superior omnichannel capabilities"</strong> - Phone, chat, social built-in natively</li>
-                    <li><strong>"Grow beyond ITSM"</strong> - One platform for customer AND employee service</li>
-                    <li><strong>"Deeper reporting and analytics"</strong> - Enterprise-grade insights vs. basic dashboards</li>
-                </ul>
-            </div>
-
-            <div class="competitor-card">
-                <h3>vs. Halo ITSM</h3>
-                <span class="tag">PROVEN AT SCALE</span>
-                <span class="tag">STRONGER ECOSYSTEM</span>
-                <ul>
-                    <li><strong>"165,000+ customers vs. 100,000+ users"</strong> - Significantly larger install base</li>
-                    <li><strong>"1,500+ integrations vs. 200+"</strong> - 7x more marketplace apps</li>
-                    <li><strong>"Global brand recognition"</strong> - Established market leader vs. regional player</li>
-                    <li><strong>"Dual-purpose platform advantage"</strong> - Leverage for both customer and employee service</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- FEATURE COMPARISON -->
-        <div class="section">
-            <h2>Feature Comparison Matrix</h2>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Capability</th>
-                        <th class="zendesk-col">Zendesk</th>
-                        <th>ServiceNow</th>
-                        <th>JIRA Service Mgmt</th>
-                        <th>Freshservice</th>
-                        <th>Halo ITSM</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Incident Management</strong></td>
-                        <td class="zendesk-col win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ Advanced</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Change Management</strong></td>
-                        <td class="zendesk-col win">✓ Standard</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ Advanced</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Asset Management</strong></td>
-                        <td class="zendesk-col win">✓ Basic</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Knowledge Base</strong></td>
-                        <td class="zendesk-col win">✓ Advanced</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ Standard</td>
-                    </tr>
-                    <tr>
-                        <td><strong>AI Agent (Autonomous)</strong></td>
-                        <td class="zendesk-col win">✓ 80% auto-resolution</td>
-                        <td class="win">✓ Now Assist (add-on)</td>
-                        <td class="neutral">✓ Pay-per-use ($0.30+)</td>
-                        <td class="neutral">✓ Basic chatbot</td>
-                        <td class="win">✓ Included standard</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Omnichannel Support</strong></td>
-                        <td class="zendesk-col win">✓ Email, Chat, Phone, Social, SMS</td>
-                        <td class="neutral">~ Limited</td>
-                        <td class="neutral">~ Email, Portal, Slack/Teams</td>
-                        <td class="neutral">~ Email, Portal, Chat</td>
-                        <td class="neutral">~ Email, Portal</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Self-Service Portal</strong></td>
-                        <td class="zendesk-col win">✓ Highly customizable</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ White-label</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Workflow Automation</strong></td>
-                        <td class="zendesk-col win">✓ Visual builder</td>
-                        <td class="win">✓ Advanced (coding)</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ Advanced</td>
-                    </tr>
-                    <tr>
-                        <td><strong>SLA Management</strong></td>
-                        <td class="zendesk-col win">✓ Advanced</td>
-                        <td class="win">✓ Advanced</td>
-                        <td class="win">✓ Advanced (8.8/10)</td>
-                        <td class="win">✓ Standard</td>
-                        <td class="win">✓ Advanced</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Mobile Apps</strong></td>
-                        <td class="zendesk-col win">✓ Native iOS/Android</td>
-                        <td class="win">✓ Native iOS/Android</td>
-                        <td class="win">✓ Native iOS/Android</td>
-                        <td class="neutral">~ Limited functionality</td>
-                        <td class="win">✓ Native (free)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Integrations Available</strong></td>
-                        <td class="zendesk-col win">1,500+</td>
-                        <td class="win">5,000+</td>
-                        <td class="win">1,000+</td>
-                        <td class="neutral">200+ (standard)</td>
-                        <td class="neutral">200+ (included)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Implementation Time</strong></td>
-                        <td class="zendesk-col win">2-4 weeks</td>
-                        <td class="lose">Months to years</td>
-                        <td class="win">3-4 weeks</td>
-                        <td class="win">Days to weeks</td>
-                        <td class="win">Days to weeks</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Learning Curve</strong></td>
-                        <td class="zendesk-col win">Low - Intuitive</td>
-                        <td class="lose">Steep - Complex</td>
-                        <td class="neutral">Moderate</td>
-                        <td class="win">Low - Intuitive</td>
-                        <td class="neutral">Moderate - Steep</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Admin Resources Needed</strong></td>
-                        <td class="zendesk-col win">Minimal</td>
-                        <td class="lose">Dedicated team</td>
-                        <td class="neutral">1-2 admins</td>
-                        <td class="win">Minimal</td>
-                        <td class="neutral">1-2 admins</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- PRICING COMPARISON -->
-        <div class="section">
-            <h2>Pricing Comparison</h2>
-            <p style="margin-bottom: 20px;"><em>Based on publicly available information. Actual pricing may vary.</em></p>
-
-            <div class="pricing-grid">
-                <div class="pricing-card zendesk-card">
-                    <h4>Zendesk Suite</h4>
-                    <div class="price">$55-$169</div>
-                    <p>per agent/month</p>
-                    <ul style="text-align: left; margin-top: 15px;">
-                        <li>Suite Team: $55/mo</li>
-                        <li>Suite Growth: $89/mo</li>
-                        <li>Suite Professional: $115/mo</li>
-                        <li>Suite Enterprise: $169/mo</li>
-                    </ul>
-                    <span class="tag">TRANSPARENT</span>
-                    <span class="tag">ALL-INCLUSIVE</span>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>ServiceNow</h4>
-                    <div class="price" style="color: #cc5537;">Custom</div>
-                    <p>Quote-based (Starting ~$100+)</p>
-                    <ul style="text-align: left; margin-top: 15px;">
-                        <li>No public pricing</li>
-                        <li>Module-based costs</li>
-                        <li>Integration fees extra</li>
-                        <li>AI features add-on</li>
-                    </ul>
-                    <span class="tag red">EXPENSIVE</span>
-                    <span class="tag red">HIDDEN COSTS</span>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>JIRA Service Mgmt</h4>
-                    <div class="price" style="color: #5f6d7a;">$20-$25+</div>
-                    <p>per agent/month + AI fees</p>
-                    <ul style="text-align: left; margin-top: 15px;">
-                        <li>Free: 3 agents</li>
-                        <li>Standard: ~$20-25/mo</li>
-                        <li>Premium: Higher tier</li>
-                        <li>AI: $0.30+/conversation</li>
-                    </ul>
-                    <span class="tag orange">USAGE-BASED AI</span>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>Freshservice</h4>
-                    <div class="price" style="color: #5f6d7a;">$19-$122</div>
-                    <p>per agent/month</p>
-                    <ul style="text-align: left; margin-top: 15px;">
-                        <li>Starter: $19-29/mo</li>
-                        <li>Growth: $49-59/mo</li>
-                        <li>Pro: $99-119/mo</li>
-                        <li>Enterprise: $122+/mo</li>
-                    </ul>
-                    <span class="tag orange">LIMITED FEATURES</span>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>Halo ITSM</h4>
-                    <div class="price" style="color: #5f6d7a;">$49+</div>
-                    <p>per agent/month</p>
-                    <ul style="text-align: left; margin-top: 15px;">
-                        <li>Starting: $49/mo</li>
-                        <li>Tiered by agent count</li>
-                        <li>All features included</li>
-                        <li>AI included standard</li>
-                    </ul>
-                    <span class="tag orange">SMALLER VENDOR</span>
+            <div class="mt-12 bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-xl font-bold text-zendesk-green mb-4">About This Hub</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    This resource hub provides quick access to essential Employee Service marketing tools and dashboards. All resources are designed for internal use by the Zendesk Employee Service Marketing team and authorized stakeholders.
+                </p>
+                <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded border-l-4 border-zendesk-mint">
+                    <svg class="w-6 h-6 text-zendesk-teal flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-gray-800">Confidential Resources</p>
+                        <p class="text-sm text-gray-600 mt-1">These tools contain sensitive business information. Do not share URLs or content outside authorized team members.</p>
+                    </div>
                 </div>
             </div>
+        </main>
 
-            <div class="highlight-box">
-                <h3>ROI Calculation for 100-Agent Team</h3>
-                <ul>
-                    <li><strong>Zendesk Suite Professional:</strong> $115 × 100 = <strong>$11,500/month</strong></li>
-                    <li><strong>ServiceNow (estimated):</strong> $150-250+ × 100 = <strong>$15,000-25,000+/month</strong></li>
-                    <li><strong>Potential Annual Savings:</strong> <span class="win">$42,000-$162,000+</span></li>
-                </ul>
+        <footer class="bg-zendesk-green text-white mt-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+                <p class="text-sm text-gray-300">Employee Service Marketing | Zendesk</p>
+                <p class="text-xs text-gray-400 mt-2">© 2026 Zendesk. Internal use only.</p>
             </div>
-        </div>
-
-        <!-- USE CASE / ICP DIFFERENCES -->
-        <div class="section">
-            <h2>Ideal Customer Profile (ICP) Comparison</h2>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Sweet Spot</th>
-                        <th>Best For</th>
-                        <th>Not Ideal For</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="zendesk-col"><strong>Zendesk</strong></td>
-                        <td class="zendesk-col"><strong>50-1,500 employees</strong></td>
-                        <td class="zendesk-col">
-                            • Growing companies needing scalability<br>
-                            • Teams wanting customer + employee service<br>
-                            • Organizations prioritizing ease of use<br>
-                            • IT teams without dedicated ITSM developers
-                        </td>
-                        <td class="zendesk-col">
-                            • Complex CMDB requirements<br>
-                            • Highly specialized ITSM workflows
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>ServiceNow</strong></td>
-                        <td>1,000+ employees</td>
-                        <td>
-                            • Large enterprises ($500M-$3B+ revenue)<br>
-                            • Complex multi-department environments<br>
-                            • Organizations with dedicated ITSM teams<br>
-                            • Regulated industries needing deep compliance
-                        </td>
-                        <td>
-                            • <span class="lose">Mid-market companies (50-1,500)</span><br>
-                            • Budget-conscious organizations<br>
-                            • Teams needing rapid deployment
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>JIRA Service Mgmt</strong></td>
-                        <td>51-1,000 employees</td>
-                        <td>
-                            • Tech companies with developer focus<br>
-                            • Organizations already using Atlassian<br>
-                            • Teams needing Dev-IT collaboration<br>
-                            • Agile-centric IT departments
-                        </td>
-                        <td>
-                            • Non-technical organizations<br>
-                            • Companies without Atlassian ecosystem<br>
-                            • Teams needing native phone/chat support
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Freshservice</strong></td>
-                        <td>51-1,000 employees</td>
-                        <td>
-                            • SMBs prioritizing cost over features<br>
-                            • IT-focused service desk only<br>
-                            • Organizations wanting simple asset mgmt<br>
-                            • Teams with limited ITSM experience
-                        </td>
-                        <td>
-                            • Companies needing advanced analytics<br>
-                            • Organizations requiring deep integrations<br>
-                            • Omnichannel-dependent operations
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Halo ITSM</strong></td>
-                        <td>51-1,000 employees</td>
-                        <td>
-                            • UK/European organizations<br>
-                            • Multi-department service mgmt (IT/HR/Facilities)<br>
-                            • Companies wanting all-inclusive pricing<br>
-                            • Organizations with ITIL focus
-                        </td>
-                        <td>
-                            • North American market preference<br>
-                            • Companies needing extensive integrations<br>
-                            • Organizations wanting brand recognition
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Zendesk's Unique ICP Advantages</h3>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Dual-Purpose Organizations:</strong> Companies that need BOTH customer service and employee service can leverage one platform, one vendor relationship, unified data</li>
-                    <li><strong>Growth-Stage Companies:</strong> Organizations scaling from 50 to 500+ employees without platform migration pain</li>
-                    <li><strong>Non-Technical IT Teams:</strong> IT leaders without developers or ITSM specialists on staff</li>
-                    <li><strong>Omnichannel-First:</strong> Organizations where employees expect Slack, Teams, email, chat, phone support options</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- REASONS TO BELIEVE -->
-        <div class="section">
-            <h2>Reasons to Believe: Why Zendesk Wins</h2>
-
-            <h3>1. Proven Track Record at Scale</h3>
-            <ul>
-                <li><strong>165,000+ businesses globally</strong> - 8x larger customer base than Freshservice</li>
-                <li><strong>4.3-4.6/5 star ratings</strong> across G2, Gartner, TrustRadius</li>
-                <li><strong>Billions of CX interactions</strong> powering AI capabilities</li>
-                <li>Customers include Microsoft, Siemens, Sony Music, and countless mid-market leaders</li>
-            </ul>
-
-            <h3>2. Superior Time-to-Value</h3>
-            <ul>
-                <li><strong>Deploy in 2-4 weeks</strong> vs. months/years for ServiceNow</li>
-                <li><strong>Minimal training required</strong> - intuitive interface rated 9.0+/10</li>
-                <li><strong>30% reduction in response times</strong> reported by customers</li>
-                <li><strong>No consultant dependency</strong> for basic to intermediate implementations</li>
-            </ul>
-
-            <h3>3. AI Leadership</h3>
-            <ul>
-                <li><strong>Recent AI acquisitions</strong> - Forethought (March 2026), Ultimate (March 2024), Klaus (Feb 2024)</li>
-                <li><strong>80% autonomous issue resolution</strong> with AI agents</li>
-                <li><strong>Built on billions of service interactions</strong> vs. competitors' newer AI capabilities</li>
-                <li><strong>Included in pricing</strong> vs. JIRA's consumption model or ServiceNow's add-ons</li>
-            </ul>
-
-            <h3>4. Financial Transparency</h3>
-            <ul>
-                <li><strong>Public, transparent pricing</strong> - know your costs upfront</li>
-                <li><strong>No hidden fees</strong> for integrations or basic features</li>
-                <li><strong>70-80% savings vs. ServiceNow</strong> for comparable functionality</li>
-                <li><strong>Predictable budgeting</strong> - no surprise SKU changes or forced upgrades</li>
-            </ul>
-
-            <h3>5. Platform Versatility</h3>
-            <ul>
-                <li><strong>One platform for customer AND employee service</strong> - unique dual capability</li>
-                <li><strong>Adapt beyond IT</strong> - HR support, facilities, internal helpdesk all in one</li>
-                <li><strong>1,500+ marketplace integrations</strong> - connect to existing tools</li>
-                <li><strong>30+ languages supported</strong> - true global capability</li>
-            </ul>
-
-            <h3>6. No Vendor Lock-In Complexity</h3>
-            <ul>
-                <li><strong>No ecosystem dependency</strong> - unlike JIRA requiring other Atlassian products</li>
-                <li><strong>Standard data portability</strong> - easier to migrate if needed</li>
-                <li><strong>Flexible contracts</strong> - no multi-year forced commitments</li>
-                <li><strong>Cloud-native</strong> - minimal IT infrastructure requirements</li>
-            </ul>
-        </div>
-
-        <!-- OBJECTION HANDLERS -->
-        <div class="section">
-            <h2>Objection Handlers</h2>
-
-            <div class="competitor-card">
-                <h3>"But ServiceNow is the industry standard..."</h3>
-                <p><strong>Response:</strong> "ServiceNow is indeed the standard for <em>enterprises with 1,000+ employees and dedicated ITSM teams</em>. But for organizations your size, it's dramatically overengineered. Companies in your segment report saving 70-80% on licensing costs alone when switching from ServiceNow, plus eliminating consultant fees. You get enterprise-grade ITSM without the enterprise complexity and cost that doesn't fit your business model."</p>
-            </div>
-
-            <div class="competitor-card">
-                <h3>"We're already invested in Atlassian/JIRA..."</h3>
-                <p><strong>Response:</strong> "That makes sense if you're primarily focused on Dev-IT collaboration. However, consider this: JIRA was built for software development and adapted for service management, while Zendesk was purpose-built for service delivery. Plus, Zendesk's AI capabilities are included rather than charged per conversation like JIRA's $0.30+ consumption model. And our omnichannel support—phone, chat, social, SMS—is native, not an add-on. Are your employees only submitting tickets through a portal, or do they need to reach IT multiple ways?"</p>
-            </div>
-
-            <div class="competitor-card">
-                <h3>"Freshservice is cheaper at the entry level..."</h3>
-                <p><strong>Response:</strong> "You're right that Freshservice's starter tier is lower. But consider what you're comparing: Freshservice has 20,000 customers globally, while Zendesk has 165,000+—that's 8x more proven deployments. Freshservice users consistently cite reporting limitations, integration challenges, and support inconsistency. When you factor in the full picture—superior omnichannel, deeper analytics, stronger AI, and proven scale—Zendesk delivers better ROI. Plus, our platform serves customer AND employee service, giving you optionality as you grow."</p>
-            </div>
-
-            <div class="competitor-card">
-                <h3>"We're looking at Halo because everything's included..."</h3>
-                <p><strong>Response:</strong> "Halo is a solid UK-based player with an all-inclusive model. However, consider: Zendesk has 1,500+ integrations vs. their 200+, giving you 7x more flexibility to connect with your existing tools. We have 165,000+ customers vs. their 100,000 total users, meaning deeper community support and proven scale. And critically, if you ever need to leverage your investment for customer service—whether that's customer success, support, or CX—Zendesk gives you that optionality. Halo locks you into pure ITSM."</p>
-            </div>
-
-            <div class="competitor-card">
-                <h3>"Zendesk is known for customer service, not ITSM..."</h3>
-                <p><strong>Response:</strong> "That's actually our strategic advantage. Think about it: the best employee experiences mirror the best customer experiences—intuitive, omnichannel, AI-powered. Our customer service DNA means we've perfected the user experience that drives adoption. Plus, many IT leaders are discovering that employee service issues and customer impact are connected—when employees can't work, customers suffer. Zendesk gives you one unified view. Our ITSM capabilities are enterprise-grade; we're just not enterprise-complicated."</p>
-            </div>
-        </div>
-
-        <!-- COMPETITIVE WINS -->
-        <div class="section">
-            <h2>Where Zendesk Wins: Decision Criteria Matrix</h2>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>IT Buyer Priority</th>
-                        <th>Zendesk Advantage</th>
-                        <th>Proof Point</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Budget Predictability</strong></td>
-                        <td class="win">Transparent pricing, no hidden costs</td>
-                        <td>Public pricing vs. ServiceNow custom quotes; no per-conversation AI fees vs. JIRA</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Time to ROI</strong></td>
-                        <td class="win">2-4 weeks to deploy</td>
-                        <td>30% faster response times; weeks vs. ServiceNow's months/years</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ease of Use</strong></td>
-                        <td class="win">Intuitive, minimal training</td>
-                        <td>4.3-4.6/5 ratings; "consumer-grade UX" vs. ServiceNow's "intimidating UI"</td>
-                    </tr>
-                    <tr>
-                        <td><strong>AI Capabilities</strong></td>
-                        <td class="win">80% autonomous resolution</td>
-                        <td>$2.85B+ in AI acquisitions (2024-2026); billions of interactions powering AI</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Platform Flexibility</strong></td>
-                        <td class="win">Customer + Employee service</td>
-                        <td>Only platform offering both CX and EX in one; leverage investment across use cases</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Resource Requirements</strong></td>
-                        <td class="win">Minimal IT resources needed</td>
-                        <td>No dedicated developers required vs. ServiceNow; visual workflow builder</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vendor Risk</strong></td>
-                        <td class="win">Established market leader</td>
-                        <td>165,000+ customers; publicly traded (NYSE); proven vendor stability</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- BATTLE TESTED PROOF -->
-        <div class="section">
-            <h2>Battle-Tested Proof Points</h2>
-
-            <h3>Customer Success Metrics</h3>
-            <ul>
-                <li><strong>30% reduction in response times</strong> after implementing Zendesk</li>
-                <li><strong>80% of support issues</strong> resolved autonomously by AI agents</li>
-                <li><strong>165,000+ businesses</strong> trust Zendesk globally</li>
-                <li><strong>4.3-4.6/5 stars</strong> across all major review platforms</li>
-                <li><strong>30+ languages</strong> supported for global operations</li>
-            </ul>
-
-            <h3>Competitive Migration Data</h3>
-            <ul>
-                <li>Companies report <strong>70-80% cost savings</strong> when switching from ServiceNow</li>
-                <li><strong>$67,000 annual savings</strong> on licensing alone (JIRA customer quote switching from ServiceNow)</li>
-                <li><strong>Weeks to deploy</strong> vs. months/years for traditional ITSM</li>
-                <li><strong>Minimal training required</strong> driving faster adoption and lower onboarding costs</li>
-            </ul>
-
-            <h3>Strategic Investments</h3>
-            <ul>
-                <li><strong>Forethought acquisition (March 2026):</strong> $2.85B investment in agentic AI</li>
-                <li><strong>Ultimate acquisition (March 2024):</strong> Flexible AI agent capabilities</li>
-                <li><strong>Klaus acquisition (February 2024):</strong> AI-powered quality assurance</li>
-                <li>Total AI investment demonstrates commitment to autonomous service delivery</li>
-            </ul>
-        </div>
-
-        <!-- CLOSING FRAMEWORK -->
-        <div class="cta-box">
-            <h3>The Zendesk Close: Three Questions for IT Decision Makers</h3>
-            <p style="margin: 15px 0; font-size: 1.1rem;">
-                1. <strong>"Do you need enterprise-grade ITSM without enterprise complexity and cost?"</strong><br>
-                2. <strong>"Would you benefit from leveraging one platform for customer AND employee service?"</strong><br>
-                3. <strong>"Is rapid deployment with predictable ROI more important than over-engineering your solution?"</strong>
-            </p>
-            <p style="margin-top: 20px; font-size: 1.1rem;">
-                If the answer is yes to any of these, <strong>Zendesk is the right choice.</strong>
-            </p>
-        </div>
-
-        <!-- QUICK REFERENCE -->
-        <div class="section">
-            <h2>Quick Reference Cheat Sheet</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                <div class="highlight-box">
-                    <h3 style="margin-top: 0; color: #03a84e;">When You Win</h3>
-                    <ul style="margin-left: 20px;">
-                        <li>Budget matters</li>
-                        <li>Speed to value critical</li>
-                        <li>Limited IT resources</li>
-                        <li>Need omnichannel</li>
-                        <li>Want CX + EX platform</li>
-                        <li>50-1,500 employees</li>
-                    </ul>
-                </div>
-
-                <div style="background: #fff4f0; border-left: 4px solid #cc5537; padding: 20px; border-radius: 4px;">
-                    <h3 style="margin-top: 0; color: #cc5537;">When You Lose</h3>
-                    <ul style="margin-left: 20px;">
-                        <li>Deep CMDB required</li>
-                        <li>Complex asset mgmt needs</li>
-                        <li>Already Atlassian-invested</li>
-                        <li>Rigid ITIL requirements</li>
-                        <li>On-premise mandate</li>
-                        <li>2,000+ employees</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Competitive Summary Table</h3>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Competitor</th>
-                        <th>Their Strength</th>
-                        <th>Our Counter</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>ServiceNow</strong></td>
-                        <td>Enterprise-grade, comprehensive, "industry standard"</td>
-                        <td class="win">Right-sized for mid-market; 70-80% cost savings; weeks not years to deploy</td>
-                    </tr>
-                    <tr>
-                        <td><strong>JIRA Service Mgmt</strong></td>
-                        <td>Dev-IT integration, Atlassian ecosystem, competitive pricing</td>
-                        <td class="win">Purpose-built for service; native omnichannel; AI included not pay-per-use</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Freshservice</strong></td>
-                        <td>Low entry price, easy to use, ITSM-focused</td>
-                        <td class="win">8x customer base; superior reporting; omnichannel native; dual CX/EX platform</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Halo ITSM</strong></td>
-                        <td>All-inclusive pricing, strong ITIL compliance, multi-department</td>
-                        <td class="win">7x more integrations; global brand; 165K+ customers vs. 100K users; CX+EX option</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="section" style="text-align: center; background: #03363d; color: white;">
-            <p style="margin: 10px 0;">Zendesk Employee Service Battle Cards</p>
-            <p style="font-size: 0.9rem; opacity: 0.8;">For internal sales use only | Updated March 2026</p>
-        </div>
-
+        </footer>
     </div>
 </body>
 </html>
